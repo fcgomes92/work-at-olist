@@ -108,3 +108,6 @@ if DEBUG:
         from workatolist.local_settings import *
     except Exception:
         pass
+
+if config('HEROKU', default=False):
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
