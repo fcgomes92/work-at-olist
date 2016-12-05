@@ -9,3 +9,4 @@
 tmp
 *.env
 work-at-olist-env
+*.sqlite3
