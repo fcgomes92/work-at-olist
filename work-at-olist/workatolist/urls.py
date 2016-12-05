@@ -4,5 +4,5 @@ from django.http import HttpResponse
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', lambda request: HttpResponse('building...'))
+    url(r'^$', lambda request: HttpResponse('building...'))
 ]

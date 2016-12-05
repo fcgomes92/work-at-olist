@@ -19,4 +19,3 @@ application = get_wsgi_application()
 if config('HEROKU', default=False):
     from whitenoise.django import DjangoWhiteNoise
     application = DjangoWhiteNoise(application)
-    print('whitenoise')
