@@ -32,7 +32,6 @@ class ParentCategoryCrawlerSerializer(serializers.ModelSerializer):
         if not new_category:
             return None
         while new_category:
-            print(new_category, new_category.id)
             parents.append(CategorySerializer(new_category).data)
             new_category = new_category.parent
         return parents
