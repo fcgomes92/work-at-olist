@@ -13,6 +13,11 @@ class Channel(models.Model):
     created = models.DateTimeField()
     updated = models.DateTimeField()
 
+    # all root categories
+    @property
+    def base_categories(self):
+        return self.categories.filter(parent=None)
+
     class Meta:
         app_label = strings.APP_LABEL
         verbose_name = strings.CHANNEL_MODEL_VERBOSE
@@ -49,7 +54,7 @@ class Category(models.Model):
 
     def __str__(self):
         if self.parent:
-            return '{} > {}'.format(self.parent, self.name)
+            return '{}'.format(self.name)
         else:
             return self.name
 

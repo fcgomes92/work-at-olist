@@ -1,8 +1,7 @@
-from django.conf.urls import url
-from django.contrib import admin
-from django.http import HttpResponse
+from django.conf.urls import url, include
+
+from categories import urls
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', lambda request: HttpResponse('building...'))
+    url(r'^api/v1/', include(urls.urlpatterns, namespace='v1')),
 ]

@@ -45,9 +45,10 @@ class Command(BaseCommand):
             for row in csv_reader:
                 categories = row.get(column_name).split('/')
                 if len(categories) > 1:
-                    generated_categories[categories[-1].strip()], created = \
+                    generated_categories['>'.join(categories).strip()], created = \
                         Category.objects.get_or_create(**dict(channel=channel,
-                                                              parent=generated_categories[categories[-2].strip()],
+                                                              parent=generated_categories[
+                                                                  '>'.join(categories[:-1]).strip()],
                                                               name=categories[-1].strip()))
 
                 else:
