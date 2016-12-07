@@ -5,4 +5,4 @@ dj-database-url
 djangorestframework
 djangorestframework-recursive
 tokenlib
-rest_framework_swagger
+django-rest-swagger
