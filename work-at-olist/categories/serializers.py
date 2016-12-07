@@ -38,10 +38,16 @@ class ParentCategoryCrawlerSerializer(serializers.ModelSerializer):
 
 
 class ChannelSerializer(serializers.ModelSerializer):
-    # categories = serializers.SerializerMethodField(read_only=True)
+    class Meta:
+        model = Channel
+        exclude = ('id', 'uid',)
 
-    # def get_categories(self, channel):
-    #     return CategorySerializer(channel.base_categories, many=True).data
+
+class SingleChannelSerializer(serializers.ModelSerializer):
+    categories = serializers.SerializerMethodField(read_only=True)
+
+    def get_categories(self, channel):
+        return CategorySerializer(channel.base_categories, many=True).data
 
     class Meta:
         model = Channel
